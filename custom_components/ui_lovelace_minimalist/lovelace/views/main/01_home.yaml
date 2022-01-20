@@ -5,7 +5,7 @@
   path: home
   type: custom:ui-lovelace-minimalist
   cards:
-    {% if _ulm_global.installed and _ulm_global.installed == 'false' %}
+  {% if _ulm_global.installed and _ulm_global.installed == 'false' %}
     - type: vertical-stack
       cards:
         - type: markdown
@@ -29,10 +29,11 @@
               tap_action:
                 action: call-service
                 service: ui_lovelace_minimalist.installed
-    {% else %}
+  {% else %}
 
     - type: markdown
       content: >
+        Hoi
         {{ _ulm_config }}
     # START HOMEPAGE HEADER
     - type: custom:ulm-flexbox-card
@@ -57,7 +58,26 @@
     # START HOMEPAGE CONTENT
 
     # Start of Rooms
-
-
-
+    {% if _ulm_config.rooms %}
+    - type: custom:ulm-flexbox-card
+      items_classes: 'col-xs-6 col-sm-3 col-md-2 col-lg-2'
+      padding: true
+      cards:
+        {% for room in _ulm_config.rooms %}
+          - type: custom:button-card
+            template: room
+            variables:
+              ulm_card_navigate_path: room_{{ room["name"]|lower|replace("'", "_")|replace(" ","_") }}
+              ulm_card_navigate_title: {{ room["name"] }}
+              ulm_card_navigate_icon: {{ room["icon"] }}
+              room_light: "{{ room["light"] | default("") }}"
+              room_temperature: "{{ room["temperature"] | default("") }}"
+              room_humidity: "{{ room["humidity"] | default("") }}"
+              room_tv: "{{ room["tv"] | default("") }}"
+              room_media: "{{ room["media"] | default("") }}"
+        {% endfor %}
     {% endif %}
+
+
+
+  {% endif %}

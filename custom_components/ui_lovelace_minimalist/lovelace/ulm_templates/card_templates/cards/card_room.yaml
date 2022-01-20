@@ -1,0 +1,115 @@
+---
+# type: custom:button-card
+# template: room
+# variables:
+#   ulm_card_navigate_path: /lovelace-minimalist/esszimmer
+#   ulm_card_navigate_title: Esszimer
+#   ulm_card_navigate_icon: mdi:hamburger
+#   room_light: group.esszimmer_lichter
+#   room_media: 'media_player.nestmini_esszimmer'
+#   room_tv: ""
+#   room_temperature: sensor.wohnzimmer_temperatur
+#   room_humidity: sensor.wohnzimmer_luftfeuchtigkeit
+room:
+  template:
+    - "card_navigate"
+  triggers_update: "all"
+  hold_action:
+    action: "more-info"
+    entity: "[[[ variables.room_light ]]]"
+  custom_fields:
+    temp: >
+      [[[
+        if(variables.room_temperature === '') {
+          return "- · -";
+        }
+        return states[variables.room_temperature].state + "°C · " + states[variables.room_humidity].state + "%";
+      ]]]
+    notification: >
+      [[[
+        return `<ha-icon icon="mdi:lightbulb" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+      ]]]
+    notification2: >
+      [[[
+          return `<ha-icon icon="mdi:speaker" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+      ]]]
+    notification3: >
+      [[[
+          return `<ha-icon icon="mdi:television" style="width: 12px; height: 12px; color: var(--primary-background-color);"></ha-icon>`;
+      ]]]
+  styles:
+    label:
+      - justify-self: center
+      - align-self: start
+      - margin: 8px 0px 0px 0px
+    grid:
+      - grid-template-areas: '"i" "n" "l" "temp"'
+      - grid-template-columns: 1fr
+      - grid-template-rows: min-content min-content
+    custom_fields:
+      notification3:
+        - border-radius: 50%
+        - position: absolute
+        - margin-left: -34px
+        - margin-top: -2px
+        - height: 16px
+        - width: 16px
+        - border: 2px solid var(--card-background-color)
+        - font-size: 12px
+        - line-height: 14px
+        - justify-self: center
+        - align-self: start
+        - display: |
+            [[[
+              if (variables.room_tv != '' && states[variables.room_tv].state === "playing") {
+                return "inline";
+              }
+              return "none";
+            ]]]
+        - background-color: rgba(var(--color-red),1)
+      notification2:
+        - border-radius: 50%
+        - position: absolute
+        - margin-left: 34px
+        - margin-top: 24px
+        - height: 16px
+        - width: 16px
+        - border: 2px solid var(--card-background-color)
+        - font-size: 12px
+        - line-height: 14px
+        - justify-self: center
+        - align-self: start
+        - display: |
+            [[[
+              if (variables.room_media != '' && states[variables.room_media].state === "playing") {
+                return "inline";
+              }
+              return "none";
+            ]]]
+        - background-color: rgba(var(--color-green),1)
+      notification:
+        - border-radius: 50%
+        - position: absolute
+        - margin-left: 34px
+        - margin-top: -2px
+        - height: 16px
+        - width: 16px
+        - border: 2px solid var(--card-background-color)
+        - font-size: 12px
+        - line-height: 14px
+        - justify-self: center
+        - align-self: start
+        - display: |
+            [[[
+              if (variables.room_light != '' && states[variables.room_light].state === "on") {
+                return "inline";
+              }
+              return "none";
+            ]]]
+        - background-color: rgba(var(--color-yellow),1)
+      temp:
+        - justify-self: center
+        - align-self: start
+        - font-weight: bolder
+        - font-size: 12px
+        - filter: opacity(40%)

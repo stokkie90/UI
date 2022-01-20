@@ -2,6 +2,7 @@
 
 # Loop through all the rooms in the room section
 
+{% if _ulm_config.rooms %}
 {% for room in _ulm_config.rooms %}
 - title: {{ room["name"] }}
   path: room_{{ room["name"]|lower|replace("'", "_")|replace(" ","_") }}
@@ -16,3 +17,4 @@
             {{ room }}
 
 {% endfor %}
+{% endif %}
