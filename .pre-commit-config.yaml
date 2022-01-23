@@ -42,8 +42,7 @@ repos:
         exclude: |
             (?x)^(
                 .pre-commit-config.yaml|
-                custom_components/ui_lovelace_minimalist/installation/.*\.yaml|
-                custom_components/ui_lovelace_minimalist/lovelace/.*\.yaml
+                custom_components/ui_lovelace_minimalist/lovelace/views/.*\.yaml
             )$
 
   - repo: https://github.com/igorshubovych/markdownlint-cli

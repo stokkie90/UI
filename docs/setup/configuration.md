@@ -1,5 +1,7 @@
 ---
 title: Configuration
+hide:
+  - toc
 ---
 
 ## Add theme to your Lovelace
@@ -8,7 +10,7 @@ To get this theme with all the button templates working make sure at least the g
 
 ### YAML Mode
 
-When you create your dashobards using Yaml mode add the following lines at the top of your Lovelace Yaml file.
+When you create your dashboards using Yaml mode add the following lines at the top of the Lovelace Yaml file of your dashboard configuration.
 
 ```yaml
 # For future use!
@@ -45,9 +47,17 @@ Example on how the directory tree could look is:
 
 ```yaml
 config
-├── ui_lovelace_minimalist
+└── ui_lovelace_minimalist
     ├── config
     ├── custom_cards
-        ├── custom_card_1.yaml
-        ├── custom_card_2.yaml
+    |   ├── custom_card_1
+    |   |   ├── custom_card_1.yaml
+    |   |   └── EN.yaml
+    |   └── custom_card_2
+    |       ├── custom_card_2.yaml
+    |       └── EN.yaml
+    └── dashboard
 ```
+
+Once you have added new custom_cards, you can always check the orders via Home Assistant and add the new cards to the config.
+Just go to "Configuration" --> "Settings" in Home Assistant and press the "UI_LOVELACE_MINIMALIST" button within the "YAML configuration reloading" section.

@@ -1,5 +1,7 @@
 ---
 title: chip_navigate
+hide:
+  - toc
 ---
 <!-- markdownlint-disable MD046 -->
 
@@ -25,4 +27,6 @@ Chip description should be here.
 
 ??? note "Template Code"
 
-        Internal Link to Template Code here
+    ```yaml title="card_light.yaml"
+    --8<-- "custom_components/ui_lovelace_minimalist/lovelace/ulm_templates/card_templates/chips/chip_navigate.yaml"
+    ```
