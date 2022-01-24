@@ -31,9 +31,11 @@ cd /tmp
 ## Browser mod
 wget https://github.com/thomasloven/hass-browser_mod/archive/refs/tags/1.5.1.tar.gz -O browser_mod.tar.gz
 tar -xvf browser_mod.tar.gz
+rm -rf /config/custom_components/browser_mod
 mv hass-browser_mod*/custom_components/browser_mod /config/custom_components/browser_mod
 
 ## virtual
 wget https://github.com/twrecked/hass-virtual/archive/refs/tags/v0.7.5.tar.gz -O virtual.tar.gz
 tar -xvf virtual.tar.gz
+rm -rf /config/custom_components/virtual
 mv hass-virtual*/custom_components/virtual /config/custom_components/virtual
