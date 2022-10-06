@@ -1,0 +1,43 @@
+{
+    "title": "UI Lovelace Minimalist",
+    "config": {
+        "step": {
+            "user": {
+                "title": "UI Lovelace Minimalist nastavitve",
+                "description": "",
+                "data": {
+                    "language": "Jezik",
+                    "sidepanel_enabled": "Omogoči ustvarjanje vnosa nadzorne plošče na stranski plošči.",
+                    "sidepanel_icon": "Ikona stranske plošče",
+                    "sidepanel_title": "Naslov stranske plošče",
+                    "theme": "Tema",
+                    "include_other_cards": "Vključi prilagojene vire kartic, od katerih je odvisno."
+                }
+            }
+        },
+        "abort": {
+            "single_instance_allowed": "Dovoljena je samo ena konfiguracija uporabniškega vmesnika Lovelace Minimalist.",
+            "not_setup": "UI Lovelace Minimalist ni nastavljen."
+        }
+    },
+    "options": {
+        "step": {
+            "user": {
+                "title": "UI Lovelace Minimalist nastavitve",
+                "description": "",
+                "data": {
+                    "language": "Jezik",
+                    "sidepanel_enabled": "Omogoči ustvarjanje vnosa nadzorne plošče na stranski plošči.",
+                    "sidepanel_icon": "Ikona stranske plošče",
+                    "sidepanel_title": "Naslov stranske plošče",
+                    "theme": "Tema",
+                    "include_other_cards": "Vključi prilagojene vire kartic, od katerih je odvisno."
+                }
+            }
+        },
+        "abort": {
+            "single_instance_allowed": "Dovoljena je samo ena konfiguracija uporabniškega vmesnika Lovelace Minimalist.",
+            "not_setup": "UI Lovelace Minimalist ni nastavljen."
+        }
+    }
+}
